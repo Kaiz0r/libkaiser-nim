@@ -20,8 +20,6 @@ proc newOptHandler*(): OptHandler =
                 result.flags[p.key] = p.val
         of cmdArgument:
             result.commands.add p.key
-            
-    return args
 
 proc flag*(opt:OptHandler, key, default:string = ""):string =
     if opt.flags.hasKey(key):

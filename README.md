@@ -1,7 +1,7 @@
 # Nim-libs
 Collection of utilities I use for my Nim code. Gets updated whenever I feel like I have some code i'll need re-usable in the future.
 
-## OptHandler [wip, untested]
+## OptHandler
 A simplificating wrapper around Nims command-line handling, to provide easier ways of parsing command lines without iterators.
 
 ```nim
@@ -14,8 +14,17 @@ echo p.flag("loop") # 5
 echo p.flag("t") # true boolean
 echo p.flag("host", "origin") # origin
 ```
+
 # strplus
-Extra string utils. For now only adds the option of using + instead of & for string concats, purely because I kept accidentally using + and wanted to test making operators. Will have more actually useful things *eventually*.
+Extra string utils.
+```nim
+proc findAllStartWith*(s, match: string):seq[string]
+"this $name is cool".findAllStartWith("$") # returns $name
+# returns every word in string that starts with match
+
+proc boolify*(s:string): bool # turns string in to bool, returs true if string is "truthy", e.i. some kind of "yes", "y", "true", "1", else returns false
+proc isNum*(s:string): bool # checks if string contains only a number, in the backend, it uses parseInt to check, returns false if parseInt raises an error
+```
 
 # seqplus
 Extra sequence utils.
